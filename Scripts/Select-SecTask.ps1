@@ -4,10 +4,10 @@
     Set-StrictMode -Version $PSVersionTable.PSVersion
 
     #Importacion de los modulos de las 4 tareas
-    Import-Module C:\Users\GitHub\Modules\Function_ResourcesUsage.psm1 -Force
-    Import-Module C:\Users\GitHub\Modules\hashesVirusTotal.psm1 -Force
-    Import-Module C:\Users\GitHub\Modules\fun_arocultos.psm1 -Force
-    Import-Module C:\Users\GitHub\Modules\Funcion_Mostrar_Prog.psm1 -Force
+    Import-Module $HOME\Downloads\Function_ResourcesUsage.psm1 -Force
+    Import-Module $HOME\Downloads\Modules\hashesVirusTotal.psm1 -Force
+    Import-Module $HOME\Downloads\Modules\fun_arocultos.psm1 -Force
+    Import-Module $HOME\Downloads\Modules\Funcion_Mostrar_Prog.psm1 -Force
 
     try {
         
