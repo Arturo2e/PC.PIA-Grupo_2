@@ -26,14 +26,14 @@
     Import-Module $HOME\Downloads\fun_arocultos.psm1 -Force
     Import-Module $HOME\Downloads\Funcion_Mostrar_Progra.psm1 -Force
 
+    #Menú principal
+    Write-Host "¿Que tarea desea hacer? 
+    [1] Revisar hashes de archivos. 
+    [2] Listar archivos ocultos de la carpeta actual. 
+    [3] Revisar los recursos en uso del sistema. 
+    [4] Obtener programas instalados en la computadora"
+    
     try {
-        
-        #Menú principal
-        Write-Host "¿Que tarea desea hacer? 
-        [1] Revisar hashes de archivos. 
-        [2] Listar archivos ocultos de la carpeta actual. 
-        [3] Revisar los recursos en uso del sistema. 
-        [4] Obtener programas instalados en la computadora"
         
         [int]$Tarea = Read-Host -Prompt "Tarea"
 
