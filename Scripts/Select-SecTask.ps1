@@ -24,7 +24,7 @@
     Import-Module $HOME\Downloads\Function_ResourceUsageMOD.psm1 -Force
     Import-Module $HOME\Downloads\HashesVT.psm1 -Force
     Import-Module $HOME\Downloads\fun_arocultos.psm1 -Force
-    Import-Module $HOME\Downloads\Funcion_Mostrar_Prog.psm1 -Force
+    Import-Module $HOME\Downloads\Funcion_Mostrar_Progra.psm1 -Force
 
     try {
         
