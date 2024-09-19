@@ -19,9 +19,9 @@
 
     #Importacion de los modulos de las 4 tareas
     Import-Module $HOME\Downloads\Function_ResourcesUsage.psm1 -Force
-    Import-Module $HOME\Downloads\Modules\hashesVirusTotal.psm1 -Force
-    Import-Module $HOME\Downloads\Modules\fun_arocultos.psm1 -Force
-    Import-Module $HOME\Downloads\Modules\Funcion_Mostrar_Prog.psm1 -Force
+    Import-Module $HOME\Downloads\hashesVirusTotal.psm1 -Force
+    Import-Module $HOME\Downloads\fun_arocultos.psm1 -Force
+    Import-Module $HOME\Downloads\Funcion_Mostrar_Prog.psm1 -Force
 
     try {
         
