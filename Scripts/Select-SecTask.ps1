@@ -1,4 +1,18 @@
 ﻿function Select-SecTask {
+    <#
+    .DESCRIPCION
+    Muestra un menú en dónde se da a elegir 4 tareas que son realizadas 
+    mediante el llamado de funciones pertenecientes a modulos. 
+    Las tareas que realiza son obtener y leer hashes de archivos, 
+    mostrar en forma de lista los archivos ocultos en el directorio actual,
+    muestra los recursos del sistema que se encuentran en uso con el objetivo de 
+    observar anomalias, y obtener y mostrar los programas que están instalados en el equipo
+    con el objetivo de encontrar anomalias en la autorizacion de instalacion de programas 
+    sin conocimiento del propietario del equipo.
+
+    .SINOPSIS
+    Selecciona y realiza una de las siguientes 4 tareas.
+    #>
 
     #Establecimiento del modo estricto en la version actual de PS
     Set-StrictMode -Version $PSVersionTable.PSVersion
@@ -100,6 +114,5 @@
     catch {
         $_.Exception.Message
     }
-
-    #Código para conseguir ayuda.
+    
 }
