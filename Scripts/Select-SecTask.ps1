@@ -12,13 +12,16 @@
 
     .SINOPSIS
     Selecciona y realiza una de las siguientes 4 tareas.
+
+    .PARAMETER
+    Está funcion no requiere parametros ni tiene posibles parametros.
     #>
 
     #Establecimiento del modo estricto en la version actual de PS
     Set-StrictMode -Version $PSVersionTable.PSVersion
 
     #Importacion de los modulos de las 4 tareas
-    Import-Module $HOME\Downloads\Function_ResourcesUsage.psm1 -Force
+    Import-Module $HOME\Downloads\Function_ResourceUsageMOD.psm1 -Force
     Import-Module $HOME\Downloads\hashesVirusTotal.psm1 -Force
     Import-Module $HOME\Downloads\fun_arocultos.psm1 -Force
     Import-Module $HOME\Downloads\Funcion_Mostrar_Prog.psm1 -Force
