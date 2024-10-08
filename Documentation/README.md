@@ -1,4 +1,2 @@
 # Documentation
-<picture>
-  <img>
-</picture>
+.
