@@ -6,6 +6,9 @@ Command = ["Get-NetFirewallRule",\
       "Get-NetFirewallSetting", "Get-NetFirewallProfile", "Get-NetFirewallPortFilter", "Get-NetFirewallAddressFilter", \
         "Set-FirewallSetting", "Set-NetFirewallProfile", "Set-NetFirewallPortFilter", "Set-NetFirewallAddressFilter"]
 
+# Toma como argumento un comando de PowerShell y lo ejecuta.
+# El comando puede contener parametros en los que se le pide al usuario \
+# el argumento correspondiente. Por ejemplo, vea la linea 35
 def run_command(Command : str):
     cli_line = "PowerShell -ExecutionPolicy ByPass -Command " + str(Command)
     cmd_output = subprocess.check_output(cli_line, text=True)
@@ -27,19 +30,26 @@ def mod_rule(desc_op : str):
         desc_op = input("Accion: ")
 
         if (desc_op == "Renombrar" or desc_op == "Ren"):
-            run_command(Command[1][0])
+            name = str(input("Nombre: "))
+            new_name = str(input("Nuevo_nombre: "))
+            run_command(Command[1][0] + f" -Name {name} " + f" -NewName {new_name} " )
         
         elif (desc_op == "Deshabilitar" or desc_op == "D"):
-            run_command(Command[1][1])
+            name = str(input("Nombre: "))
+            run_command(Command[1][1] + f" -Name {name} ")
         
         elif (desc_op == "Habilitar" or desc_op == "H"):
-            run_command(Command[1][2])
+            name = str(input("Nombre: "))
+            run_command(Command[1][2] + f" -Name {name} ")
         
         elif (desc_op == "Remover" or desc_op == "Rem"):
-            run_command(Command[1][3])
+            name = str(input("Nombre: "))
+            run_command(Command[1][3] + f" -Name {name} ")
 
         elif (desc_op == "Copiar" or desc_op == "C"):
-            run_command(Command[1][5])
+            name = str(input("Nombre: "))
+            copy_name = str(input("Nombre_de_la_copia: "))
+            run_command(Command[1][5] + f" -Name {name} " + f"-NewName {copy_name} ")
 
         elif (desc_op == "Volver" or desc_op == "V"):
             break
@@ -78,13 +88,21 @@ def mod_task(subject, desc_op = "No"):
             run_command(Command[6])
         
         elif (subject == "el perfil"):
-            run_command(Command[7])
+            profile_name = str(input("Nombre_de_perfil: "))
+            run_command(Command[7] + f" -Name {profile_name}")
         
         elif (task == 4):
-            run_command(Command[8])
+            locport = str(input("Puerto_Local: "))
+            remport = str(input("Puerto_Remoto: "))
+            protocol = str(input("Protocolo: "))
+            run_command(Command[8] + f" -LocalPort {locport} " + f"-Protocol {protocol} " + f"-RemotePort {remport} ")
         
         elif (task == 5):
-            run_command(Command[9])
+            locaddrss = str(input("Dirección_Local: "))
+            remadrss = str(input("Dirección_Remota: "))
+            run_command(Command[9] + f" -LocalAddress {locaddrss} " + f"-RemoteAddress {remadrss}")
+    
+    print("Modificación realizada con éxito.")
 
 
 # Ejecute el script en pantalla en la terminal \
