@@ -58,7 +58,7 @@ def set_rule(desc_op = "No"):
         action = str(input("Accion (Allow/Block): "))
         protocol = str(input("Protocolo (TCP/UDP/ICMPv4/ICMPv6): "))
         profile = str(input("Perfil (Any/Domain/Private/Public/NotApplicable): "))
-        run_command(Command[1][4] + f"-Name {name} " + f"-Action {action} " + f"-Protocol {protocol} " + f"-Profile {profile} ") # Falta especificar parametros
+        run_command(Command[1][4] + f" -Name {name} " + f"-Action {action} " + f"-Protocol {protocol} " + f"-Profile {profile} ")
 
 # Guarda la salida del comando ejecutado en la funcion 'run_command()' en un archivo de texto plano
 def save_in_file(file : str, subject : str, output : str, desc = "No"):
