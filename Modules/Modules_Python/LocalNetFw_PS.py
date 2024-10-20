@@ -1,5 +1,7 @@
 import subprocess
 
+__name__ = "__locNetFw_PS__"
+
 # Lista de los comandos que se ejecutan
 Command = ["Get-NetFirewallRule",\
       ["Rename-NetFirewallRule", "Disable-NetFirewallRule", "Enable-NetFirewallRule", "Remove-NetFirewallRule", "Set-NetFirewallRule", "Copy-NetFirewallRule"], \
@@ -107,77 +109,82 @@ def mod_task(subject, desc_op = "No"):
 
 # Ejecute el script en pantalla en la terminal \
 # como administrador (En PowerShell.exe o CMD.exe)
-while (True):
-    try:
-        print("--------------------------------Modulo_de_NetFirewall--------------------------------")
-        print("¿Qué tarea desea realizar?")
-        print("*************************************************************************************")
-        print("[1] Mostrar las reglas definidas \
-                    [4] Obtener el filtro de puertos")
-        print("[2] Obtener la configuración global actual \
-          [5] Obtener filtro de direcciones") 
-        print("[3] Obtener la configuración de perfiles \
-            [6] Salir")
-        print("*************************************************************************************")
+def menu_netfw():
+    while (True):
+        try:
+            print("--------------------------------Modulo_de_NetFirewall--------------------------------")
+            print("¿Qué tarea desea realizar?")
+            print("*************************************************************************************")
+            print("[1] Mostrar las reglas definidas \
+                        [4] Obtener el filtro de puertos")
+            print("[2] Obtener la configuración global actual \
+            [5] Obtener filtro de direcciones") 
+            print("[3] Obtener la configuración de perfiles \
+                [6] Salir")
+            print("*************************************************************************************")
 
-        task = int(input("Número_de_sub-tarea:  "))
+            task = int(input("Número_de_sub-tarea:  "))
 
-        # Cada tarea muestra la salida del comando ejecutado \ 
-        # y dan la opcion de guardar las salidas en un archivo
-        if (task == 1):
-            output = run_command(Command[0])
-            print(output)
-            save_in_file("Reglas_Firewall-de-Red", "las reglas", output)
-            set_rule()
-            mod_rule(desc_op = any)
+            # Cada tarea muestra la salida del comando ejecutado \ 
+            # y dan la opcion de guardar las salidas en un archivo
+            if (task == 1):
+                output = run_command(Command[0])
+                print(output)
+                save_in_file("Reglas_Firewall-de-Red", "las reglas", output)
+                set_rule()
+                mod_rule(desc_op = any)
+                continue
+
+            if (task == 2):
+                output = run_command(Command[2])
+                print(output)
+                save_in_file("Configuracion_Firewall-de-Red", "la configuración", output)
+                mod_task("la configuracion")
+                continue
+
+            if (task == 3):
+                output = run_command(Command[3])
+                print(output)
+                save_in_file("Perfiles_Firewall-de-Red", "los perfiles", output)
+                mod_task("el perfil")
+                continue
+
+            if (task == 4):
+                output = run_command(Command[4])
+                print(output)
+                save_in_file("Filtros-de-Puertos_Firewall-de-Red", "los filtros", output)
+                mod_task("los filtros")
+                continue
+
+            if (task == 5):
+                output = run_command(Command[5])
+                print(output)
+                save_in_file("Filtro-de-Direcciones_Firewall-de-Red", "los filtros", output)
+                mod_task("los filtros")
+                continue
+
+            elif (task == 6):
+                print("Tarea finalizada con éxito.")
+                exit()
+                break
+
+            else:
+                print("Número de sub-tarea ingresado no válido. Ingrese un número del menú.")
+                continue
+            
+        except ValueError: 
+            print("Ingresaste una cadena o un valor de tipo flotante. Ingrese un valor del menú")
             continue
 
-        if (task == 2):
-            output = run_command(Command[2])
-            print(output)
-            save_in_file("Configuracion_Firewall-de-Red", "la configuración", output)
-            mod_task("la configuracion")
-            continue
-
-        if (task == 3):
-            output = run_command(Command[3])
-            print(output)
-            save_in_file("Perfiles_Firewall-de-Red", "los perfiles", output)
-            mod_task("el perfil")
-            continue
-
-        if (task == 4):
-            output = run_command(Command[4])
-            print(output)
-            save_in_file("Filtros-de-Puertos_Firewall-de-Red", "los filtros", output)
-            mod_task("los filtros")
-            continue
-
-        if (task == 5):
-            output = run_command(Command[5])
-            print(output)
-            save_in_file("Filtro-de-Direcciones_Firewall-de-Red", "los filtros", output)
-            mod_task("los filtros")
-            continue
-
-        elif (task == 6):
-            print("Tarea finalizada con éxito.")
+        except subprocess.CalledProcessError:
+            print("Algo salió mal. Ejecute el script como administrador y vuelva a intertarlo.")
             exit()
             break
 
-        else:
-            print("Número de sub-tarea ingresado no válido. Ingrese un número del menú.")
+        except KeyboardInterrupt:
+            print("El programa ha sido interrumpido por el usuario.")
+            print("")
             continue
-        
-    except ValueError: 
-        print("Ingresaste una cadena o un valor de tipo flotante. Ingrese un valor del menú")
-        continue
 
-    except subprocess.CalledProcessError:
-        print("Algo salió mal. Ejecute el script como administrador y vuelva a intertarlo.")
-        exit()
-        break
-
-    except KeyboardInterrupt:
-        print("")
-        continue
+if (__name__ == "__locNetFw_PS__"):
+    menu_netfw()
