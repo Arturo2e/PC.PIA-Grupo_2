@@ -1,7 +1,5 @@
 import subprocess
 
-__name__ = "__locNetFw_PS__"
-
 # Lista de los comandos que se ejecutan
 Command = ["Get-NetFirewallRule",\
       ["Rename-NetFirewallRule", "Disable-NetFirewallRule", "Enable-NetFirewallRule", "Remove-NetFirewallRule", "Set-NetFirewallRule", "Copy-NetFirewallRule"], \
@@ -83,7 +81,7 @@ def save_in_file(file : str, subject : str, output : str, desc = "No"):
         # el archivo "Reglas_Firewall-de-Red.txt" \
         # se guardó en C:\Windows\System32   
 
-def mod_task(subject, desc_op = "No"):
+def mod_task(subject, desc_op = "No", task : int = None):
     desc_op = str(input(f"¿Desea modificar {subject}? (Si/No): "))
     if (desc_op == "Si" or desc_op == 'S'):
         if (subject == "la configuracion"):
@@ -153,14 +151,14 @@ def menu_netfw():
                 output = run_command(Command[4])
                 print(output)
                 save_in_file("Filtros-de-Puertos_Firewall-de-Red", "los filtros", output)
-                mod_task("los filtros")
+                mod_task("los filtros", any, 4)
                 continue
 
             if (task == 5):
                 output = run_command(Command[5])
                 print(output)
                 save_in_file("Filtro-de-Direcciones_Firewall-de-Red", "los filtros", output)
-                mod_task("los filtros")
+                mod_task("los filtros", any, 5)
                 continue
 
             elif (task == 6):
@@ -186,5 +184,5 @@ def menu_netfw():
             print("")
             continue
 
-if (__name__ == "__locNetFw_PS__"):
+if (__name__ == "__main__"):
     menu_netfw()
