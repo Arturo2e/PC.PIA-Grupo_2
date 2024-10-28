@@ -10,7 +10,7 @@
     con el objetivo de encontrar anomalias en la autorizacion de instalacion de programas 
     sin conocimiento del propietario del equipo.
 
-    .SINOPSIS
+    .SYNOPSIS
     Selecciona y realiza una de las siguientes 4 tareas.
 
     .PARAMETRO
