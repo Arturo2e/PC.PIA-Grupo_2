@@ -13,7 +13,7 @@
     .SYNOPSIS
     Selecciona y realiza una de las siguientes 4 tareas.
 
-    .PARAMETRO
+    .PARAMETER
     Está funcion no requiere parametros ni tiene posibles parametros.
     #>
 
