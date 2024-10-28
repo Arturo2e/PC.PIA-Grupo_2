@@ -1,6 +1,6 @@
 ﻿function Select-SecTask {
     <#
-    .DESCRIPCION
+    .DESCRIPTION
     Muestra un menú en dónde se da a elegir 4 tareas que son realizadas 
     mediante el llamado de funciones pertenecientes a modulos. 
     Las tareas que realiza son obtener y leer hashes de archivos, 
