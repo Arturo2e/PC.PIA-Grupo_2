@@ -4,7 +4,8 @@
 
 $apikey = <#agregue su apikey personal#>
 $urlVirusTotal = "https://www.virustotal.com/api/v3/files"
-<# NOMBRE
+<# 
+.NAME
     Get-ChildItem
 
 SINTAXIS
